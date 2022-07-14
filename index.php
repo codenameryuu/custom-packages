@@ -113,7 +113,7 @@
                     </h4>
 
                     <div class="table-responsive">
-                        <table class="table" id="datatable">
+                        <table class="table datatable">
                             <thead class="text-center">
                                 <tr>
                                     <th>
@@ -273,50 +273,48 @@
     </div>
 
     <script>
-        $(document).ready(function() {
-            loadDatatable();
-            loadDatepicker();
-            loadSelect2();
-            loadDropify();
-            loadTextEditor();
-        });
-    </script>
-
-    <script>
         function loadDatatable() {
-            $("#datatable").dataTable();
+            if ($('.datatable').length) {
+                $('.datatable').dataTable();
+            }
         }
 
         function loadDatepicker() {
-            $(".datepicker").flatpickr({
-                altInput: true,
-                altFormat: "j F Y",
-                dateFormat: "Y-m-d"
-            });
+            if ($('.datepicker').length) {
+                $('.datepicker').flatpickr({
+                    altInput: true,
+                    altFormat: "j F Y",
+                    dateFormat: "Y-m-d"
+                });
+            }
         }
 
         function loadSelect2() {
-            $('.select2').select2({
-                theme: "bootstrap-5",
-                width: $(this).data('width') ? $(this).data('width') : $(this).hasClass('w-100') ? '100%' : 'style',
-                placeholder: 'Choose one',
-                allowClear: true
-            });
+            if ($('.select2').length) {
+                $('.select2').select2({
+                    theme: "bootstrap-5",
+                    width: $(this).data('width') ? $(this).data('width') : $(this).hasClass('w-100') ? '100%' : 'style',
+                    placeholder: 'Choose one',
+                    allowClear: true
+                });
+            }
         }
 
         function loadDropify() {
-            $('.dropify').dropify({
-                messages: {
-                    'default': 'Drag and drop or click',
-                    'replace': 'Drag and drop or click to replace',
-                    'remove': 'Remove',
-                    'error': ''
-                },
-                error: {
-                    'fileSize': 'The file size is too big (5MB max) !',
-                    'fileExtension': 'The file extension is invalid (jpg, jpeg, png only) !',
-                }
-            });
+            if ($('.dropify').length) {
+                $('.dropify').dropify({
+                    messages: {
+                        'default': 'Drag and drop or click',
+                        'replace': 'Drag and drop or click to replace',
+                        'remove': 'Remove',
+                        'error': ''
+                    },
+                    error: {
+                        'fileSize': 'The file size is too big (5MB max) !',
+                        'fileExtension': 'The file extension is invalid (jpg, jpeg, png only) !',
+                    }
+                });
+            }
         }
 
         function blockUi() {
