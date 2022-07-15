@@ -15,28 +15,27 @@
     <!-- Bootstrap Js -->
     <script src="bootstrap-5/js/bootstrap.bundle.min.js"></script>
 
+    <!-- Bootstrap Icon -->
+    <link rel="stylesheet" href="bootstrap-icon/bootstrap-icons.css">
+
     <!-- Datatable Css -->
-    <link href="datatable/css/dataTables.bootstrap4.css" rel="stylesheet" />
-    <link href="datatable/css/buttons.bootstrap4.css" rel="stylesheet">
-    <link href="datatable/css/responsive.bootstrap4.css" rel="stylesheet" />
-    <link href="datatable/css/jquery.dataTables.css" rel="stylesheet">
-    <link href="datatable/css/responsive.dataTables.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="datatable/css/dataTables.bootstrap5.min.css">
+    <link rel="stylesheet" type="text/css" href="datatable/css/responsive.bootstrap5.min.css">
+    <link rel="stylesheet" type="text/css" href="datatable/css/buttons.bootstrap5.min.css">
+    <link rel="stylesheet" type="text/css" href="datatable/css/rowGroup.bootstrap5.min.css">
     <!-- Datatable JS -->
     <script src="datatable/js/jquery.dataTables.min.js"></script>
-    <script src="datatable/js/dataTables.dataTables.min.js"></script>
+    <script src="datatable/js/dataTables.bootstrap5.min.js"></script>
     <script src="datatable/js/dataTables.responsive.min.js"></script>
-    <script src="datatable/js/responsive.dataTables.min.js"></script>
-    <script src="datatable/js/jquery.dataTables.js"></script>
-    <script src="datatable/js/dataTables.bootstrap4.js"></script>
-    <script src="datatable/js/dataTables.buttons.min.js"></script>
-    <script src="datatable/js/buttons.bootstrap4.min.js"></script>
+    <script src="datatable/js/responsive.bootstrap5.min.js"></script>
+    <script src="datatable/js/datatables.checkboxes.min.js"></script>
+    <script src="datatable/js/datatables.buttons.min.js"></script>
     <script src="datatable/js/jszip.min.js"></script>
+    <script src="datatable/js/pdfmake.min.js"></script>
     <script src="datatable/js/vfs_fonts.js"></script>
     <script src="datatable/js/buttons.html5.min.js"></script>
     <script src="datatable/js/buttons.print.min.js"></script>
-    <script src="datatable/js/buttons.colVis.min.js"></script>
-    <script src="datatable/js/dataTables.responsive.min.js"></script>
-    <script src="datatable/js/responsive.bootstrap4.min.js"></script>
+    <script src="datatable/js/dataTables.rowGroup.min.js"></script>
 
     <!-- Select2 Css -->
     <link href="select2/css/select2.css" rel="stylesheet">
@@ -90,16 +89,11 @@
         background-color: white !important;
     }
 
-    /* Css untuk input block ui */
-    .blockUI.blockOverlay {
-        background-color: #dae0dd !important;
-    }
-
     /* Css untuk loader block ui */
-    .blockUI.blockMsg.blockElement {
-        background-color: white !important;
-        border-radius: 20px;
-        border-color: black !important;
+    .blockMsg {
+        background-color: transparent !important;
+        color: white !important;
+        border: 0 !important;
     }
 </style>
 
@@ -112,33 +106,31 @@
                         Contoh Data Table
                     </h4>
 
-                    <div class="table-responsive">
-                        <table class="table datatable">
-                            <thead class="text-center">
-                                <tr>
-                                    <th>
-                                        No
-                                    </th>
+                    <table class="table table-striped table-hover datatable">
+                        <thead class="text-center">
+                            <tr>
+                                <th>
+                                    No
+                                </th>
 
-                                    <th>
-                                        Nama
-                                    </th>
-                                </tr>
-                            </thead>
+                                <th>
+                                    Nama
+                                </th>
+                            </tr>
+                        </thead>
 
-                            <tbody class="text-center">
-                                <tr>
-                                    <td>
-                                        1
-                                    </td>
+                        <tbody class="text-center">
+                            <tr>
+                                <td>
+                                    1
+                                </td>
 
-                                    <td>
-                                        Tes Data
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
+                                <td>
+                                    Tes Data
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
@@ -206,7 +198,7 @@
                         Contoh Block UI
                     </h4>
 
-                    <div class="rounded mb-3" id="divInputBlockUi">
+                    <div class="rounded mb-3" id="inputBlockUiContainer">
                         <input type="nama" class="form-control" name="nama" id="nama" placeholder="Masukan Nama" autocomplete="off">
                     </div>
 
@@ -235,6 +227,7 @@
                     </h4>
 
                     <button class="mt-3 btn btn-success w-100" onclick="alertIziToast()">
+                        <i class="bi bi-image"></i>
                         Toats
                     </button>
                 </div>
@@ -273,9 +266,93 @@
     </div>
 
     <script>
-        function loadDatatable() {
+        $(document).ready(function() {
+            loadDatatableClientSide();
+            loadDatepicker();
+            loadSelect2();
+            loadDropify();
+        });
+    </script>
+
+    <script>
+        function loadDatatableClientSide() {
             if ($('.datatable').length) {
                 $('.datatable').dataTable();
+            }
+        }
+
+        function loadDatatableServerSide() {
+            if ($('.datatable-serverside').length) {
+                $('.datatable-serverside').DataTable({
+                    processing: true,
+                    serverSide: true,
+                    ajax: "{{ url('/master-data/profesi/datatable') }}",
+                    columnDefs: [{
+                            targets: 0,
+                            className: 'control',
+                            orderable: false,
+                            responsivePriority: 2
+                        },
+
+                        {
+                            targets: "_all",
+                            className: 'text-center',
+                        },
+                    ],
+                    columns: [{
+                            data: 'detail',
+                            name: 'detail'
+                        },
+
+                        {
+                            data: 'id',
+                            render: function(data, type, row, meta) {
+                                return meta.row + meta.settings._iDisplayStart + 1;
+                            }
+                        },
+
+                        {
+                            data: 'name',
+                            name: 'name'
+                        },
+
+                        {
+                            data: 'action',
+                            name: 'action',
+                            orderable: false,
+                            searchable: false
+                        },
+                    ],
+                    responsive: {
+                        details: {
+                            display: $.fn.dataTable.Responsive.display.modal(),
+                            type: 'column',
+                            renderer: function(api, rowIdx, columns) {
+                                let data = $.map(columns, function(col, i) {
+                                    return col.title !==
+                                        '' ?
+                                        '<tr data-dt-row="' +
+                                        col.rowIdx +
+                                        '" data-dt-column="' +
+                                        col.columnIndex +
+                                        '">' +
+                                        '<td>' +
+                                        col.title +
+                                        ':' +
+                                        '</td> ' +
+                                        '<td>' +
+                                        col.data +
+                                        '</td>' +
+                                        '</tr>' :
+                                        '';
+                                }).join('');
+
+                                return data ? $('<table class="table">').append('<tbody>' + data +
+                                    '</tbody>') : false;
+                            }
+                        }
+                    }
+                });
             }
         }
 
@@ -319,15 +396,15 @@
 
         function blockUi() {
             let loading =
-                '<span class="me-2 spinner-border spinner-border-sm text-primary" role="status" aria-hidden="true"></span> Loading...';
+                '<span class="text-white spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Loading...';
 
-            $("#divInputBlockUi").block({
+            $("#inputBlockUiContainer").block({
                 message: loading,
             });
         }
 
         function unblockUi() {
-            $("#divInputBlockUi").unblock();
+            $("#inputBlockUiContainer").unblock();
         }
 
         function alertIziToast() {
