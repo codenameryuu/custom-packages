@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Example</title>
 
     <!-- Jquery 3.6.0 -->
@@ -19,23 +20,11 @@
     <link rel="stylesheet" href="bootstrap-icon/bootstrap-icons.css">
 
     <!-- Datatable Css -->
-    <link rel="stylesheet" type="text/css" href="datatable/css/dataTables.bootstrap5.min.css">
-    <link rel="stylesheet" type="text/css" href="datatable/css/responsive.bootstrap5.min.css">
-    <link rel="stylesheet" type="text/css" href="datatable/css/buttons.bootstrap5.min.css">
-    <link rel="stylesheet" type="text/css" href="datatable/css/rowGroup.bootstrap5.min.css">
+    <link href="datatable/css/bootstrap.css" rel="stylesheet">
+    <link href="datatable/css/dataTables.bootstrap5.css" rel="stylesheet">
     <!-- Datatable JS -->
-    <script src="datatable/js/jquery.dataTables.min.js"></script>
-    <script src="datatable/js/dataTables.bootstrap5.min.js"></script>
-    <script src="datatable/js/dataTables.responsive.min.js"></script>
-    <script src="datatable/js/responsive.bootstrap5.min.js"></script>
-    <script src="datatable/js/datatables.checkboxes.min.js"></script>
-    <script src="datatable/js/datatables.buttons.min.js"></script>
-    <script src="datatable/js/jszip.min.js"></script>
-    <script src="datatable/js/pdfmake.min.js"></script>
-    <script src="datatable/js/vfs_fonts.js"></script>
-    <script src="datatable/js/buttons.html5.min.js"></script>
-    <script src="datatable/js/buttons.print.min.js"></script>
-    <script src="datatable/js/dataTables.rowGroup.min.js"></script>
+    <script src="datatable/js/jquery.dataTables.js"></script>
+    <script src="datatable/js/dataTables.bootstrap5.js"></script>
 
     <!-- Select2 Css -->
     <link href="select2/css/select2.css" rel="stylesheet">
@@ -72,30 +61,13 @@
     <!-- Flatpickr Js -->
     <script src="flatpickr/dist/flatpickr.min.js"></script>
 
+    <!-- Form Repeater -->
+    <script src="form-repeater/jquery.repeater.js"></script>
 </head>
 
-<style>
-    body {
-        background-color: #a7a8a8;
-    }
-
-    .card {
-        border-radius: 20px;
-        padding: 20px;
-    }
-
-    /* Css untuk input class datepicker */
-    .datepicker {
-        background-color: white !important;
-    }
-
-    /* Css untuk loader block ui */
-    .blockMsg {
-        background-color: transparent !important;
-        color: white !important;
-        border: 0 !important;
-    }
-</style>
+<?php
+include_once('customCss.php');
+?>
 
 <body>
     <div class="container mb-5">
@@ -263,219 +235,58 @@
                 </div>
             </div>
         </div>
+
+        <div class="mt-5">
+            <div class="card">
+                <div class="card-body">
+                    <h2 class="text-center">
+                        Contoh Form Repeater
+                    </h2>
+
+                    <form action="echo.php" class="repeater" enctype="multipart/form-data">
+                        <div data-repeater-list="group-a">
+                            <div data-repeater-item>
+                                <div class="row mb-3">
+                                    <div class="col-md-10">
+                                        <input type="text" class="form-control" name="name" id="name" value="Paijo" placeholder="Masukan Nama" autocomplete="off">
+                                    </div>
+
+                                    <div class="col-md-2">
+                                        <button type="button" class="btn btn-danger" data-repeater-delete>
+                                            Hapus
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mt-3">
+                            <button type="button" class="btn btn-primary" data-repeater-create>
+                                Tambah Data
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
 
     <script>
-        $(document).ready(function() {
-            loadDatatableClientSide();
-            loadDatepicker();
-            loadSelect2();
-            loadDropify();
+        $('.repeater').repeater({
+            show: function() {
+                $(this).slideDown();
+            },
+            hide: function(deleteElement) {
+                if (confirm('Are you sure you want to delete this element?')) {
+                    $(this).slideUp(deleteElement);
+                }
+            }
         });
     </script>
 
-    <script>
-        function loadDatatableClientSide() {
-            if ($('.datatable').length) {
-                $('.datatable').dataTable();
-            }
-        }
-
-        function loadDatatableServerSide() {
-            if ($('.datatable-serverside').length) {
-                $('.datatable-serverside').DataTable({
-                    processing: true,
-                    serverSide: true,
-                    ajax: "{{ url('/master-data/profesi/datatable') }}",
-                    columnDefs: [{
-                            targets: 0,
-                            className: 'control',
-                            orderable: false,
-                            responsivePriority: 2
-                        },
-
-                        {
-                            targets: "_all",
-                            className: 'text-center',
-                        },
-                    ],
-                    columns: [{
-                            data: 'detail',
-                            name: 'detail'
-                        },
-
-                        {
-                            data: 'id',
-                            render: function(data, type, row, meta) {
-                                return meta.row + meta.settings._iDisplayStart + 1;
-                            }
-                        },
-
-                        {
-                            data: 'name',
-                            name: 'name'
-                        },
-
-                        {
-                            data: 'action',
-                            name: 'action',
-                            orderable: false,
-                            searchable: false
-                        },
-                    ],
-                    responsive: {
-                        details: {
-                            display: $.fn.dataTable.Responsive.display.modal(),
-                            type: 'column',
-                            renderer: function(api, rowIdx, columns) {
-                                let data = $.map(columns, function(col, i) {
-                                    return col.title !==
-                                        '' ?
-                                        '<tr data-dt-row="' +
-                                        col.rowIdx +
-                                        '" data-dt-column="' +
-                                        col.columnIndex +
-                                        '">' +
-                                        '<td>' +
-                                        col.title +
-                                        ':' +
-                                        '</td> ' +
-                                        '<td>' +
-                                        col.data +
-                                        '</td>' +
-                                        '</tr>' :
-                                        '';
-                                }).join('');
-
-                                return data ? $('<table class="table">').append('<tbody>' + data +
-                                    '</tbody>') : false;
-                            }
-                        }
-                    }
-                });
-            }
-        }
-
-        function loadDatepicker() {
-            if ($('.datepicker').length) {
-                $('.datepicker').flatpickr({
-                    altInput: true,
-                    altFormat: "j F Y",
-                    dateFormat: "Y-m-d"
-                });
-            }
-        }
-
-        function loadSelect2() {
-            if ($('.select2').length) {
-                $('.select2').select2({
-                    theme: "bootstrap-5",
-                    width: $(this).data('width') ? $(this).data('width') : $(this).hasClass('w-100') ? '100%' : 'style',
-                    placeholder: 'Choose one',
-                    allowClear: true
-                });
-            }
-        }
-
-        function loadDropify() {
-            if ($('.dropify').length) {
-                $('.dropify').dropify({
-                    messages: {
-                        'default': 'Drag and drop or click',
-                        'replace': 'Drag and drop or click to replace',
-                        'remove': 'Remove',
-                        'error': ''
-                    },
-                    error: {
-                        'fileSize': 'The file size is too big (5MB max) !',
-                        'fileExtension': 'The file extension is invalid (jpg, jpeg, png only) !',
-                    }
-                });
-            }
-        }
-
-        function blockUi() {
-            let loading =
-                '<span class="text-white spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Loading...';
-
-            $("#inputBlockUiContainer").block({
-                message: loading,
-            });
-        }
-
-        function unblockUi() {
-            $("#inputBlockUiContainer").unblock();
-        }
-
-        function alertIziToast() {
-            iziToast.show({
-                message: "Selamat Datang...",
-                color: 'blue',
-                position: 'topRight'
-            });
-        }
-
-        function sweetAlert() {
-            Swal.fire({
-                icon: 'info',
-                text: 'Halo...',
-            })
-        }
-
-        function loadTextEditor(status) {
-            let editor = new FroalaEditor('.texteditor', {
-                heightMin: 200,
-                heightMax: 400,
-                attribution: false,
-                fileAllowedTypes: ['jpg', 'jpeg', 'png'],
-                fontSizeUnit: 'pt',
-                imageResizeWithPercent: true,
-                placeholderText: 'Type something...',
-                quickInsertButtons: [],
-                toolbarButtons: {
-                    moreMisc: {
-                        buttons: ['undo', 'redo', 'fullscreen', 'print', 'getPDF', 'selectAll', 'html'],
-                        align: 'left',
-                        buttonsVisible: 3
-                    },
-
-                    moreText: {
-                        buttons: ['bold', 'italic', 'underline', 'fontFamily', 'fontSize', 'textColor',
-                            'strikeThrough',
-                            'subscript', 'superscript', 'backgroundColor', 'inlineClass', 'inlineStyle',
-                            'clearFormatting'
-                        ],
-                        align: 'left',
-                        buttonsVisible: 3
-                    },
-
-                    moreParagraph: {
-                        buttons: ['alignLeft', 'alignCenter', 'alignRight', 'alignJustify',
-                            'formatOL', 'formatUL', 'paragraphFormat', 'paragraphStyle', 'lineHeight',
-                            'outdent',
-                            'indent'
-                        ],
-                        align: 'left',
-                        buttonsVisible: 4
-                    },
-
-                    moreRich: {
-                        buttons: ['insertLink', 'insertImage', 'insertVideo', 'insertTable', 'emoticons',
-                            'fontAwesome',
-                            'specialCharacters', 'embedly', 'insertFile', 'insertHR'
-                        ],
-                        align: 'left',
-                        buttonsVisible: 2
-                    },
-                }
-            }, function() {
-                if (status == 'readonly') {
-                    editor.edit.off();
-                }
-            });
-
-        }
-    </script>
+    <?php
+    include_once('customJs.php');
+    ?>
 
 </body>
 
