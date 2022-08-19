@@ -55,6 +55,14 @@
     <!-- Froala Js -->
     <script type="text/javascript" src="froala-editor/js/froala_editor.pkgd.min.js"></script>
 
+    <!-- Summernote Css -->
+    <link href="summernote/summernote-lite.css" rel="stylesheet" type="text/css">
+    <!-- Summernote Js -->
+    <script type="text/javascript" src="summernote/summernote-lite.js"></script>
+
+    <!-- TinyMCE -->
+    <script type="text/javascript" src="tinymce/tinymce.min.js"></script>
+
     <!-- Flatpickr Css -->
     <link rel="stylesheet" href="flatpickr/dist/flatpickr.min.css">
     <link rel="stylesheet" type="text/css" href="flatpickr/dist/themes/material_blue.css">
@@ -224,14 +232,34 @@ include_once('customCss.php');
             <div class="card">
                 <div class="card-body">
                     <h4 class="text-center">
-                        Contoh Texteditor
+                        Froala Texteditor
                     </h4>
 
-                    <label for="texteditorExample">
-                        Konten
-                    </label>
+                    <textarea class="form-control froala-texteditor" name="froalaTexteditor" id="froalaTexteditor"></textarea>
+                </div>
+            </div>
+        </div>
 
-                    <textarea class="form-control texteditor" name="konten" id="konten"></textarea>
+        <div class="mt-5">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="text-center">
+                        Summernote Texteditor
+                    </h4>
+
+                    <textarea class="form-control summernote-texteditor" name="summernoteTexteditor" id="summernoteTexteditor"></textarea>
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-5">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="text-center">
+                        TinyMCE Texteditor
+                    </h4>
+
+                    <textarea class="form-control tinymce-texteditor" name="tinymceTexteditor" id="tinymceTexteditor"></textarea>
                 </div>
             </div>
         </div>

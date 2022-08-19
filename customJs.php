@@ -3,6 +3,7 @@
         loadDatatableClientSide();
         loadDatepicker();
         loadSelect2();
+        loadTextEditor();
         loadDropify();
     });
 </script>
@@ -156,7 +157,7 @@
     }
 
     function loadTextEditor(status) {
-        let editor = new FroalaEditor('.texteditor', {
+        let froalaTexteditor = new FroalaEditor('.froala-texteditor', {
             heightMin: 200,
             heightMax: 400,
             attribution: false,
@@ -203,10 +204,49 @@
             }
         }, function() {
             if (status == 'readonly') {
-                editor.edit.off();
+                froalaTexteditor.edit.off();
             }
         });
 
+        $('.summernote-texteditor').summernote({});
+
+        tinymce.init({
+            selector: '.tinymce-texteditor',
+            height: 400,
+            plugins: [
+                'advlist', 'autolink', 'lists', 'link', 'image', 'charmap', 'preview',
+                'anchor', 'searchreplace', 'visualblocks', 'code', 'fullscreen',
+                'insertdatetime', 'media', 'table', 'help', 'wordcount', 'emoticons'
+            ],
+            menubar: false,
+            toolbar: 'undo redo | fontfamily fontsize | bold italic underline strikethrough | alignleft aligncenter alignright alignjustify | bullist numlist | emoticons link image | fullscreen preview code',
+            images_upload_handler: function(blobInfo, success, failure) {
+                var xhr, formData;
+                var token = '{{ csrf_token() }}';
+                xhr = new XMLHttpRequest();
+                xhr.withCredentials = false;
+                xhr.open('POST', '/home/profile/about/img');
+                xhr.setRequestHeader("X-CSRF-Token", token);
+                xhr.onload = function() {
+                    var json;
+                    if (xhr.status != 200) {
+                        failure('HTTP Error: ' + xhr.status);
+                        return;
+                    }
+                    json = JSON.parse(xhr.responseText);
+
+                    if (!json || typeof json.location != 'string') {
+                        failure('Invalid JSON: ' + xhr.responseText);
+                        return;
+                    }
+                    success(json.location);
+                };
+                formData = new FormData();
+                formData.append('file', blobInfo.blob(), blobInfo.filename());
+                xhr.send(formData);
+            },
+            content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:16px }'
+        });
     }
 
     function confirmSubmit(form, buttonId) {
