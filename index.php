@@ -11,6 +11,11 @@
     <!-- Jquery 3.6.0 -->
     <script src="jquery/jquery.min.js"></script>
 
+    <!-- Nprogress Css -->
+    <link rel="stylesheet" href="nprogress/nprogress.css">
+    <!-- Nprogress Js -->
+    <script src="nprogress/nprogress.js"></script>
+
     <!-- Bootstrap Css -->
     <link href="bootstrap-5/css/bootstrap.min.css" rel="stylesheet">
     <!-- Bootstrap Js -->
@@ -313,6 +318,7 @@ include_once('customCss.php');
     </script>
 
     <?php
+    include_once('nprogress.php');
     include_once('customJs.php');
     ?>
 
