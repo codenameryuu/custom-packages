@@ -316,6 +316,15 @@
         </div>
     </div>
 
+    <script>
+        NProgress.inc();
+
+        NProgress.start();
+        window.onload = function() {
+            NProgress.done();
+        }
+    </script>
+
     <script src="assets/js/custom.js"></script>
 </body>
 
