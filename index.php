@@ -6,89 +6,140 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Example</title>
+    <title>
+        Empample Usage
+    </title>
 
-    <!-- Jquery 3.6.0 -->
-    <script src="jquery/jquery.min.js"></script>
+    <!-- // * Font Popins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 
-    <!-- Nprogress Css -->
-    <link rel="stylesheet" href="nprogress/nprogress.css">
-    <!-- Nprogress Js -->
-    <script src="nprogress/nprogress.js"></script>
+    <!-- // * Bootstrap 5.3 -->
+    <link rel="stylesheet" href="assets/libraries/bootstrap-5.3/css/bootstrap.css">
+    <script src="assets/libraries/bootstrap-5.3/js/bootstrap.bundle.js"></script>
 
-    <!-- Bootstrap Css -->
-    <link href="bootstrap-5/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Bootstrap Js -->
-    <script src="bootstrap-5/js/bootstrap.bundle.min.js"></script>
+    <!-- // * Jquery -->
+    <script src="assets/libraries/jquery/js/jquery.js"></script>
 
-    <!-- Bootstrap Icon -->
-    <link rel="stylesheet" href="bootstrap-icon/bootstrap-icons.css">
+    <!-- // * Animate -->
+    <link rel="stylesheet" href="assets/libraries/animate/css/animate.css">
 
-    <!-- Datatable Css -->
-    <link href="datatable/css/bootstrap.css" rel="stylesheet">
-    <link href="datatable/css/dataTables.bootstrap5.css" rel="stylesheet">
-    <!-- Datatable JS -->
-    <script src="datatable/js/jquery.dataTables.js"></script>
-    <script src="datatable/js/dataTables.bootstrap5.js"></script>
+    <!-- // * Axios -->
+    <script src="assets/libraries/axios/js/axios.js"></script>
 
-    <!-- Select2 Css -->
-    <link href="select2/css/select2.css" rel="stylesheet">
-    <link href="select2/css/select2-theme.css" rel="stylesheet">
-    <!-- Select2 Js -->
-    <script src="select2/js/select2.min.js"></script>
+    <!-- // * Block UI -->
+    <script src="assets/libraries/block-ui/js/block-ui.js"></script>
 
-    <!-- Seetalert -->
-    <script src="sweetalert2/dist/sweetalert2.all.min.js"></script>
+    <!-- // * Centrifuge -->
+    <script src="assets/libraries/centrifuge/js/centrifuge.js"></script>
 
-    <!-- Izitoast Css -->
-    <link rel="stylesheet" href="izitoast/dist/css/iziToast.min.css">
-    <!-- Izitoast Js -->
-    <script src="izitoast/dist/js/iziToast.min.js"></script>
+    <!-- // * Datatable -->
+    <link rel="stylesheet" href="assets/libraries/datatable/css/bootstrap.css">
+    <link rel="stylesheet" href="assets/libraries/datatable/css/dataTables.bootstrap5.css">
+    <script src="assets/libraries/datatable/js/jquery.dataTables.js"></script>
+    <script src="assets/libraries/datatable/js/dataTables.bootstrap5.js"></script>
 
-    <!-- Dropify Css -->
-    <link rel="stylesheet" href="dropify/dist/css/dropify.min.css">
-    <!-- Dropify Js -->
-    <script src="dropify/dist/js/dropify.min.js"></script>
+    <!-- // * Dropify -->
+    <link rel="stylesheet" href="assets/libraries/dropify/css/dropify.css">
+    <script src="assets/libraries/dropify/js/dropify.js"></script>
 
-    <!-- Block UI -->
-    <script src="block-ui/block-ui.js"></script>
+    <!-- // * Feather Icon -->
+    <script src="assets/libraries/feather-icons/feather.js"></script>
 
-    <!-- Froala PDF Export Js -->
-    <script type="text/javascript" src="froala-editor/js/export-pdf.js"></script>
-    <!-- Froala Css -->
-    <link href="froala-editor/css/froala_editor.pkgd.min.css" rel="stylesheet" type="text/css" />
-    <!-- Froala Js -->
-    <script type="text/javascript" src="froala-editor/js/froala_editor.pkgd.min.js"></script>
+    <!-- // * Flatpickr -->
+    <link rel="stylesheet" href="assets/libraries/flatpickr/css/flatpickr.css">
+    <link rel="stylesheet" href="assets/libraries/flatpickr/themes/material_blue.css">
+    <script src="assets/libraries/flatpickr/js/flatpickr.js"></script>
 
-    <!-- Summernote Css -->
-    <link href="summernote/summernote-lite.css" rel="stylesheet" type="text/css">
-    <!-- Summernote Js -->
-    <script type="text/javascript" src="summernote/summernote-lite.js"></script>
+    <!-- // * Form Repeater -->
+    <script src="assets/libraries/form-repeater/js/form-repeater.js"></script>
 
-    <!-- TinyMCE -->
-    <script type="text/javascript" src="tinymce/tinymce.min.js"></script>
+    <!-- // * Form Validation -->
+    <link rel="stylesheet" href="assets/libraries/form-validation/css/formValidation.css">
+    <script src="assets/libraries/form-validation/js/FormValidation.js"></script>
+    <script src="assets/libraries/form-validation/js/plugins/Bootstrap5.js"></script>
+    <script src="assets/libraries/form-validation/js/plugins/AutoFocus.js"></script>
 
-    <!-- Flatpickr Css -->
-    <link rel="stylesheet" href="flatpickr/dist/flatpickr.min.css">
-    <link rel="stylesheet" type="text/css" href="flatpickr/dist/themes/material_blue.css">
-    <!-- Flatpickr Js -->
-    <script src="flatpickr/dist/flatpickr.min.js"></script>
+    <!-- // * Izi Toats -->
+    <link rel="stylesheet" href="assets/libraries/izitoast/css/iziToast.css">
+    <script src="assets/libraries/izitoast/js/iziToast.js"></script>
 
-    <!-- Form Repeater -->
-    <script src="form-repeater/jquery.repeater.js"></script>
+    <!-- // * Nprogress -->
+    <link rel="stylesheet" href="assets/libraries/nprogress/css/nprogress.css">
+    <script src="assets/libraries/nprogress/js/nprogress.js"></script>
+
+    <!-- // * Select2 Bootstrap 5 -->
+    <link rel="stylesheet" href="assets/libraries/select2-bootstrrap-5/css/select2.css">
+    <link rel="stylesheet" href="assets/libraries/select2-bootstrrap-5/css/select2-theme.css">
+    <script src="assets/libraries/select2-bootstrrap-5/js/select2.js"></script>
+
+    <!-- // * Sweetalert -->
+    <link rel="stylesheet" href="assets/libraries/sweetalert2/css/sweetalert2.css">
+    <script src="assets/libraries/sweetalert2/js/sweetalert2.js"></script>
+
+    <!-- // * Custom Css -->
+    <link rel="stylesheet" href="assets/css/style.css">
+
 </head>
-
-<?php
-include_once('customCss.php');
-?>
 
 <body>
     <div class="container mb-5">
         <div class="mt-5">
             <div class="card">
                 <div class="card-body">
+                    <h4 class="text-center animate__animated animate__fadeIn">
+                        Animate Css
+                    </h4>
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-5">
+            <div class="card">
+                <div class="card-body">
                     <h4 class="text-center">
-                        Contoh Data Table
+                        Axios
+                    </h4>
+
+                    <p id="axios-data"></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-5">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="text-center">
+                        Block UI
+                    </h4>
+
+                    <div class="mb-2" id="block-ui-sample-container">
+                        <input type="text" class="form-control" id="block-ui-sample" value="Some Text...">
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <button class="btn btn-primary w-100" onclick="blockUiSample()">
+                                Block
+                            </button>
+                        </div>
+
+                        <div class="col-md-6">
+                            <button class="btn btn-success w-100" onclick="unblockUiSample()">
+                                Unblock
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-5">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="text-center">
+                        Datatable
                     </h4>
 
                     <table class="table table-striped table-hover datatable">
@@ -124,14 +175,10 @@ include_once('customCss.php');
             <div class="card">
                 <div class="card-body">
                     <h4 class="text-center">
-                        Contoh Datepicker
+                        Dropify
                     </h4>
 
-                    <label for="datepickerExample">
-                        Datepicker
-                    </label>
-
-                    <input type="text" class="form-control datepicker" name="datepickerExample" id="datepickerExample" placeholder="Pilih tanggal" autocomplete="off">
+                    <input type="file" class="form-control dropify" name="dopifyExample" id="dopifyExample">
                 </div>
             </div>
         </div>
@@ -140,12 +187,106 @@ include_once('customCss.php');
             <div class="card">
                 <div class="card-body">
                     <h4 class="text-center">
-                        Contoh Selectpicker
+                        Feather Icon
                     </h4>
 
-                    <label for="selectpickerExample">
-                        Selectpicker
-                    </label>
+                    <h2 class="text-center">
+                        <i data-feather="edit"></i>
+                    </h2>
+
+                    <script>
+                        feather.replace();
+                    </script>
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-5">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="text-center">
+                        Flatpickr
+                    </h4>
+
+                    <input type="text" class="form-control datepicker" name="datepickerExample" id="datepickerExample" placeholder="Choose Date" autocomplete="off">
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-5">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="text-center">
+                        Form Repeater
+                    </h4>
+
+                    <form action="echo.php" class="repeater" enctype="multipart/form-data">
+                        <div data-repeater-list="group-a">
+                            <div data-repeater-item>
+                                <div class="row mb-3">
+                                    <div class="col-md-10">
+                                        <input type="text" class="form-control" name="formRepeaterField" id="form-repeater-field" placeholder="Some Text" autocomplete="off">
+                                    </div>
+
+                                    <div class="col-md-2">
+                                        <button type="button" class="btn btn-danger" data-repeater-delete>
+                                            Delete
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mt-3">
+                            <button type="button" class="btn btn-primary" data-repeater-create>
+                                Add Data
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-5">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="text-center">
+                        Form Validation
+                    </h4>
+
+                    <form id="form-validation-sample" action="javascript:void(0)" method="POST">
+                        <div class="mb-3">
+                            <input type="text" class="form-control" name="formValidationField" id="form-validation-field" placeholder="Some Text...">
+                        </div>
+
+                        <button class="btn btn-primary w-100">
+                            Submit
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-5">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="text-center">
+                        Izi Toast
+                    </h4>
+
+                    <button class="btn btn-success w-100" onclick="iziToastSample()">
+                        Izi Toats
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-5">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="text-center">
+                        Select 2 Bootstrap 5
+                    </h4>
 
                     <select class="form-control select2" name="selectpickerExample" id="selectpickerExample">
                         <option value="Pilihan 1">
@@ -164,164 +305,18 @@ include_once('customCss.php');
             <div class="card">
                 <div class="card-body">
                     <h4 class="text-center">
-                        Contoh Dropify
+                        Sweetalert
                     </h4>
 
-                    <label for="dopifyExample">
-                        Dropify
-                    </label>
-
-                    <input type="file" class="form-control dropify" name="dopifyExample" id="dopifyExample">
-                </div>
-            </div>
-        </div>
-
-        <div class="mt-5">
-            <div class="card">
-                <div class="card-body">
-                    <h4 class="text-center">
-                        Contoh Block UI
-                    </h4>
-
-                    <div class="rounded mb-3" id="inputBlockUiContainer">
-                        <input type="nama" class="form-control" name="nama" id="nama" placeholder="Masukan Nama" autocomplete="off">
-                    </div>
-
-                    <div class="row">
-                        <div class="col-md-6">
-                            <button class="btn btn-primary w-100" onclick="blockUi()">
-                                Block UI
-                            </button>
-                        </div>
-
-                        <div class="col-md-6">
-                            <button class="btn btn-primary w-100" onclick="unblockUi()">
-                                Unlock UI
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="mt-5">
-            <div class="card">
-                <div class="card-body">
-                    <h4 class="text-center">
-                        Contoh Toast
-                    </h4>
-
-                    <button class="mt-3 btn btn-success w-100" onclick="alertIziToast()">
-                        <i class="bi bi-image"></i>
-                        Toats
-                    </button>
-                </div>
-            </div>
-        </div>
-
-        <div class="mt-5">
-            <div class="card">
-                <div class="card-body">
-                    <h4 class="text-center">
-                        Contoh Sweetalert
-                    </h4>
-
-                    <button class="mt-3 btn btn-danger w-100" onclick="sweetAlert()">
+                    <button class="btn btn-danger w-100" onclick="sweetAlertSample()">
                         Sweetalert
                     </button>
                 </div>
             </div>
         </div>
-
-        <div class="mt-5">
-            <div class="card">
-                <div class="card-body">
-                    <h4 class="text-center">
-                        Froala Texteditor
-                    </h4>
-
-                    <textarea class="form-control froala-texteditor" name="froalaTexteditor" id="froalaTexteditor"></textarea>
-                </div>
-            </div>
-        </div>
-
-        <div class="mt-5">
-            <div class="card">
-                <div class="card-body">
-                    <h4 class="text-center">
-                        Summernote Texteditor
-                    </h4>
-
-                    <textarea class="form-control summernote-texteditor" name="summernoteTexteditor" id="summernoteTexteditor"></textarea>
-                </div>
-            </div>
-        </div>
-
-        <div class="mt-5">
-            <div class="card">
-                <div class="card-body">
-                    <h4 class="text-center">
-                        TinyMCE Texteditor
-                    </h4>
-
-                    <textarea class="form-control tinymce-texteditor" name="tinymceTexteditor" id="tinymceTexteditor"></textarea>
-                </div>
-            </div>
-        </div>
-
-        <div class="mt-5">
-            <div class="card">
-                <div class="card-body">
-                    <h2 class="text-center">
-                        Contoh Form Repeater
-                    </h2>
-
-                    <form action="echo.php" class="repeater" enctype="multipart/form-data">
-                        <div data-repeater-list="group-a">
-                            <div data-repeater-item>
-                                <div class="row mb-3">
-                                    <div class="col-md-10">
-                                        <input type="text" class="form-control" name="name" id="name" value="Paijo" placeholder="Masukan Nama" autocomplete="off">
-                                    </div>
-
-                                    <div class="col-md-2">
-                                        <button type="button" class="btn btn-danger" data-repeater-delete>
-                                            Hapus
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="mt-3">
-                            <button type="button" class="btn btn-primary" data-repeater-create>
-                                Tambah Data
-                            </button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
     </div>
 
-    <script>
-        $('.repeater').repeater({
-            show: function() {
-                $(this).slideDown();
-            },
-            hide: function(deleteElement) {
-                if (confirm('Are you sure you want to delete this element?')) {
-                    $(this).slideUp(deleteElement);
-                }
-            }
-        });
-    </script>
-
-    <?php
-    include_once('nprogress.php');
-    include_once('customJs.php');
-    ?>
-
+    <script src="assets/js/custom.js"></script>
 </body>
 
 </html>

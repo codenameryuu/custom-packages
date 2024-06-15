@@ -1,21 +1,103 @@
-# Custom Packages
+# Custom Packages Documentation
 
-## Tentang
+## Overview
+Contain custom packages for development web application
 
-Berisi package yang dapat digunakan ketika membangun website berbasis html css dan javascript
+## Animate
+You can check how to use from official documentation
+```bash
+https://animate.style
+```
 
-## Library
+## Axios
+You can check how to use from official documentation
+```bash
+https://axios-http.com
+```
 
-1. Block UI
-2. Bootstrap 5
-3. Datatable
-4. Dropify
-5. Flatpickr
-6. Froala Text Editor
-7. Izi Toast
-8. Jquery 3.6.0
-9. Select2 Bootstrap 5
-10. Sweetalert 2
+## Block UI
+You can check how to use from official documentation
+```bash
+http://malsup.com/jquery/block
+```
+
+## Bootstrap 5
+You can check how to use from official documentation
+```bash
+https://getbootstrap.com
+```
+
+## Centrifuge
+You can check how to use from official documentation
+```bash
+https://github.com/centrifugal/centrifuge-js
+```
+
+## Datatable
+You can check how to use from official documentation
+```bash
+https://datatables.net
+```
+
+## Dropify
+You can check how to use from official documentation
+```bash
+https://github.com/JeremyFagis/dropify
+```
+
+## Feather Icon
+You can check how to use from official documentation
+```bash
+https://github.com/feathericons/feather
+```
+
+## Flatpickr
+You can check how to use from official documentation
+```bash
+https://flatpickr.js.org
+```
+
+## Form Repeater
+You can check how to use from official documentation
+```bash
+https://github.com/DubFriend/jquery.repeater
+```
+
+## Form Validation
+You can check how to use from official documentation
+```bash
+https://formvalidation.io
+```
+
+## Izi Toast
+You can check how to use from official documentation
+```bash
+https://izitoast.marcelodolza.com
+```
+
+## Jquery
+You can check how to use from official documentation
+```bash
+https://jquery.com
+```
+
+## Nprogress
+You can check how to use from official documentation
+```bash
+https://github.com/rstacruz/nprogress
+```
+
+## Select2 Bootstrap 5
+You can check how to use from official documentation
+```bash
+https://apalfrey.github.io/select2-bootstrap-5-theme
+```
+
+## Sweetalert 2
+You can check how to use from official documentation
+```bash
+https://sweetalert2.github.io
+```
 
 ## Cara Instalasi
 
