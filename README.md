@@ -98,9 +98,3 @@ You can check how to use from official documentation
 ```bash
 https://sweetalert2.github.io
 ```
-
-## Cara Instalasi
-
-1. Download lalu pindah folder ke project yang diinginkan
-2. Ikuti tutorial yang ada di file `index.php`
-3. Selamat mencoba... :)
